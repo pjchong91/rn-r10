@@ -9,7 +9,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AboutScreen from "./screens/About";
-import { ApolloProvider, Query } from "react-apollo";
+import { ApolloProvider } from "react-apollo";
 import client from "./config/api.js";
 
 export default class App extends Component {
