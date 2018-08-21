@@ -1,8 +1,10 @@
-import React from "react-navigation";
+import React from "react";
 import {
   createBottomTabNavigator,
   createStackNavigator
 } from "react-navigation";
+
+import Icon from "react-native-vector-icons/Ionicons";
 
 import About from "./../screens/About";
 import Schedule from "./../screens/Schedule";
@@ -41,6 +43,28 @@ export default createBottomTabNavigator(
     About: aboutStack
   },
   {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === "About") {
+          iconName = `ios-information-circle${focused ? "" : "-outline"}`;
+        }
+        if (routeName === "Schedule") {
+          iconName = `ios-calendar`;
+        }
+        if (routeName === "Favs") {
+          iconName = `ios-heart${focused ? "" : "-empty"}`;
+        }
+        if (routeName === "Map") {
+          iconName = `ios-map`;
+        }
+
+        // You can return any component that you like here! We usually use an
+        // icon component from react-native-vector-icons
+        return <Icon name={iconName} size={25} color={tintColor} />;
+      }
+    }),
     tabBarOptions: {
       activeTintColor: "white",
       inactiveTintColor: "#999999",
