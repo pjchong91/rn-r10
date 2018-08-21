@@ -27,12 +27,12 @@ const About = conducts => {
         <Text style={styles.headerText}>Code of Conduct</Text>
         {/* <AboutContainer /> */}
 
-        {conducts.conducts.map(conduct => {
+        {conducts.conducts.map(conduct => (
           <View key={conduct.id}>
             <Text style={styles.codeHeader}>{`${conduct.title}`}</Text>
             <Text style={styles.codeText}>{` ${conduct.description}`}</Text>
-          </View>;
-        })}
+          </View>
+        ))}
 
         <View style={styles.divider} />
         <Text style={styles.bodyText}>© RED Academy 2018</Text>

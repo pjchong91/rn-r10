@@ -24,7 +24,6 @@ export default class AboutContainer extends Component {
           if (error) return <Text>Error :(</Text>;
 
           return <About conducts={allConducts} />;
-          //TODO: RESOLVE ISSUE OF KEYS
         }}
       </Query>
     );
