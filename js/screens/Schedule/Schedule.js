@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, View, ScrollView, SectionList } from "react-native";
 import styles from "./styles";
+import Moment from "react-moment";
+import moment from "moment";
 
 const Schedule = sessions => {
   return (
@@ -14,7 +16,9 @@ const Schedule = sessions => {
             </View>
           )}
           renderSectionHeader={({ section: { title } }) => (
-            <Text style={{ fontWeight: "bold" }}>{title}</Text>
+            <Text style={{ fontWeight: "bold" }}>
+              {moment(new Date(title)).format("hh:mm")}
+            </Text>
           )}
           sections={sessions.sessions}
           keyExtractor={item => item.id}
