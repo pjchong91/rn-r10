@@ -1,10 +1,9 @@
 import React from "react";
 import { Text, View, Image, ScrollView } from "react-native";
 import styles from "./styles";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
 
-const About = () => {
+const About = conducts => {
+  console.log(conducts);
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -26,32 +25,15 @@ const About = () => {
         </Text>
 
         <Text style={styles.headerText}>Code of Conduct</Text>
+        {/* <AboutContainer /> */}
 
-        <Query
-          query={gql`
-            {
-              allConducts {
-                title
-                description
-                id
-              }
-            }
-          `}
-        >
-          {({ loading, error, data }) => {
-            if (loading) return <Text>Loading...</Text>;
-            if (error) return <Text>Error :(</Text>;
+        {conducts.conducts.map(conduct => {
+          <View key={conduct.id}>
+            <Text style={styles.codeHeader}>{`${conduct.title}`}</Text>
+            <Text style={styles.codeText}>{` ${conduct.description}`}</Text>
+          </View>;
+        })}
 
-            return data.allConducts.map(({ title, description, id }) => (
-              //TODO: RESOLVE ISSUE OF KEYS
-
-              <View key={id}>
-                <Text style={styles.codeHeader}>{`${title}`}</Text>
-                <Text style={styles.codeText}>{` ${description}`}</Text>
-              </View>
-            ));
-          }}
-        </Query>
         <View style={styles.divider} />
         <Text style={styles.bodyText}>© RED Academy 2018</Text>
       </ScrollView>
