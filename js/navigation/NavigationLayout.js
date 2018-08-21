@@ -3,6 +3,7 @@ import {
   createBottomTabNavigator,
   createStackNavigator
 } from "react-navigation";
+import { sharedNavigationOptions } from "./config";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -11,29 +12,57 @@ import Schedule from "./../screens/Schedule";
 import Favs from "./../screens/Favs";
 import Map from "./../screens/Map";
 
-const aboutStack = createStackNavigator({
-  About: {
-    screen: About
+const aboutStack = createStackNavigator(
+  {
+    About: {
+      screen: About
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
-const scheduleStack = createStackNavigator({
-  Schedule: {
-    screen: Schedule
+const scheduleStack = createStackNavigator(
+  {
+    Schedule: {
+      screen: Schedule
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
-const favsStack = createStackNavigator({
-  Favs: {
-    screen: Favs
+const favsStack = createStackNavigator(
+  {
+    Favs: {
+      screen: Favs
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
-const mapStack = createStackNavigator({
-  Map: {
-    screen: Map
+const mapStack = createStackNavigator(
+  {
+    Map: {
+      screen: Map
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
 export default createBottomTabNavigator(
   {
@@ -69,7 +98,8 @@ export default createBottomTabNavigator(
       activeTintColor: "white",
       inactiveTintColor: "#999999",
       labelStyle: {
-        fontSize: 10
+        fontSize: 10,
+        fontFamily: "Montserrat"
       },
       style: {
         backgroundColor: "black"

@@ -12,6 +12,7 @@
     "react": "16.4.1",
     "react-apollo": "^2.1.11",
     "react-native": "0.56.0",
+    "react-native-linear-gradient": "^2.4.0",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.11.2"
   },
@@ -23,5 +24,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "js/assets/fonts"
+    ]
   }
 }
