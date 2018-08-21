@@ -33,9 +33,23 @@ const mapStack = createStackNavigator({
   }
 });
 
-export default createBottomTabNavigator({
-  Schedule: scheduleStack,
-  Map: mapStack,
-  Favs: favsStack,
-  About: aboutStack
-});
+export default createBottomTabNavigator(
+  {
+    Schedule: scheduleStack,
+    Map: mapStack,
+    Favs: favsStack,
+    About: aboutStack
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: "white",
+      inactiveTintColor: "#999999",
+      labelStyle: {
+        fontSize: 10
+      },
+      style: {
+        backgroundColor: "black"
+      }
+    }
+  }
+);

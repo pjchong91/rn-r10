@@ -33,6 +33,7 @@ const Schedule = () => {
               allConducts {
                 title
                 description
+                id
               }
             }
           `}
@@ -44,7 +45,7 @@ const Schedule = () => {
             return data.allConducts.map(({ title, description, id }) => (
               //TODO: RESOLVE ISSUE OF KEYS
 
-              <View keyExtractor={{ id }}>
+              <View key={id}>
                 <Text style={styles.codeHeader}>{`${title}`}</Text>
                 <Text style={styles.codeText}>{` ${description}`}</Text>
               </View>
