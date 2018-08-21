@@ -7,18 +7,16 @@
  */
 
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import AboutScreen from "./screens/About";
+import { StyleSheet } from "react-native";
 import { ApolloProvider } from "react-apollo";
 import client from "./config/api.js";
+import RootStackNavigator from "./navigation/RootStackNavigation";
 
 export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <View style={styles.container}>
-          <AboutScreen />
-        </View>
+        <RootStackNavigator />
       </ApolloProvider>
     );
   }
