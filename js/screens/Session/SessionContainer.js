@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import Schedule from "./Schedule";
+import Session from "./Session";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
 
-export default class ScheduleContainer extends Component {
-  static navigationOptions = {
-    title: "Schedule"
-  };
+// Helper to format GraphQL data into section list data
 
+export default class SessionContainer extends Component {
+  static navigationOptions = {
+    title: "Session"
+  };
   render() {
     return (
       <Query
@@ -26,9 +27,6 @@ export default class ScheduleContainer extends Component {
         {({ loading, error, data: { allSessions } }) => {
           if (loading) return <Text>Loading...</Text>;
           if (error) return <Text>Error :(</Text>;
-          // Helper to format GraphQL data into section list data
-
-          console.log(this.props.navigation, "navigation");
           let sessions = allSessions
             .reduce((acc, curr) => {
               const timeExists = acc.find(
@@ -43,11 +41,21 @@ export default class ScheduleContainer extends Component {
               return acc;
             }, [])
             .sort((a, b) => a.title - b.title);
-          return (
-            <Schedule sessions={sessions} navigation={this.props.navigation} />
-          );
+          return <Session sessions={sessions} />;
         }}
       </Query>
     );
   }
 }
+
+// export const formatSessionData = sessions => {
+//   return sessions
+//     .reduce((acc, curr) => {
+//       const timeExists = acc.find(section => section.title === curr.startTime);
+//       timeExists
+//         ? timeExists.data.push(curr)
+//         : acc.push({ title: curr.startTime, data: [curr] });
+//       return acc;
+//     }, [])
+//     .sort((a, b) => a.title - b.title);
+// };

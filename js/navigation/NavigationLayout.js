@@ -11,6 +11,7 @@ import About from "./../screens/About";
 import Schedule from "./../screens/Schedule";
 import Favs from "./../screens/Favs";
 import Map from "./../screens/Map";
+import Session from "./../screens/Session";
 
 const aboutStack = createStackNavigator(
   {
@@ -29,9 +30,16 @@ const scheduleStack = createStackNavigator(
   {
     Schedule: {
       screen: Schedule
+    },
+    Session: {
+      screen: Session
     }
+    // About: {
+    //   screen: About
+    // }
   },
   {
+    initialRouteName: "Schedule",
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
     })
