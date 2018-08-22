@@ -3,6 +3,7 @@ import Session from "./Session";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
+import FavsContext from "./../../context/FavsContext";
 
 // Helper to format GraphQL data into section list data
 
@@ -10,52 +11,46 @@ export default class SessionContainer extends Component {
   static navigationOptions = {
     title: "Session"
   };
+
   render() {
-    return (
-      <Query
-        query={gql`
-          {
-            allSessions {
-              startTime
-              location
-              title
-              id
-            }
+    sessionId = this.props.navigation.getParam("itemId");
+
+    const GET_SESSION_QUERY = gql`
+      query($id: ID) {
+        Session(id: $id) {
+          description
+          title
+          startTime
+          location
+          speaker {
+            image
+            name
           }
-        `}
-      >
-        {({ loading, error, data: { allSessions } }) => {
-          if (loading) return <Text>Loading...</Text>;
-          if (error) return <Text>Error :(</Text>;
-          let sessions = allSessions
-            .reduce((acc, curr) => {
-              const timeExists = acc.find(
-                section => section.title === curr.startTime
-              );
-              timeExists
-                ? timeExists.data.push(curr)
-                : acc.push({
-                    title: curr.startTime,
-                    data: [curr]
-                  });
-              return acc;
-            }, [])
-            .sort((a, b) => a.title - b.title);
-          return <Session sessions={sessions} />;
-        }}
-      </Query>
+        }
+      }
+    `;
+
+    return (
+      <FavsContext.Consumer>
+        <Query query={GET_SESSION_QUERY} variables={{ id: sessionId }}>
+          {({ loading, error, data }) => {
+            if (loading) return <Text>Loading...</Text>;
+            if (error) return <Text>Error :(</Text>;
+
+            {
+              values => {
+                return (
+                  <Session
+                    session={data}
+                    navigation={this.props.navigation}
+                    favIds={values.favIds}
+                  />
+                );
+              };
+            }
+          }}
+        </Query>
+      </FavsContext.Consumer>
     );
   }
 }
-
-// export const formatSessionData = sessions => {
-//   return sessions
-//     .reduce((acc, curr) => {
-//       const timeExists = acc.find(section => section.title === curr.startTime);
-//       timeExists
-//         ? timeExists.data.push(curr)
-//         : acc.push({ title: curr.startTime, data: [curr] });
-//       return acc;
-//     }, [])
-//     .sort((a, b) => a.title - b.title);
-// };
