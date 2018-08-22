@@ -5,42 +5,37 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
-    padding: 20
+    backgroundColor: "white"
+    // padding: 20
   },
-  logo: {
-    marginTop: 20,
-    // marginBottom: 20,
-    marginLeft: "auto",
-    marginRight: "auto"
+  timeHeader: {
+    width: "100%",
+    backgroundColor: "#e6e6e6",
+    paddingLeft: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    fontWeight: "600",
+    fontFamily: "Montserrat"
   },
-  divider: {
-    marginTop: 20,
-    borderBottomColor: "#e6e6e6",
-    borderBottomWidth: 2
+  sessionText: {
+    padding: 10,
+    fontFamily: "Montserrat"
+    // lineHeight: 2.0
   },
-  headerText: {
-    fontSize: 24,
-    fontWeight: "600"
-    // paddingTop: 20,
-    // paddingBottom: 20
-  },
-  bodyText: {
+  sessionTitle: {
     fontSize: 18,
-    paddingTop: 20,
-    paddingBottom: 20
-    // paddingLeft: 10,
-    // paddingRight: 10
+    fontWeight: "600",
+    marginBottom: 8
   },
-  codeHeader: {
-    fontSize: 18,
-    paddingTop: 20,
-    paddingBottom: 20,
-    color: "#9963ea",
-    fontWeight: "600"
+  sessionLocation: {
+    color: "#999999",
+    fontWeight: "600",
+    fontSize: 16
   },
-  codeText: {
-    fontSize: 18
+  separator: {
+    height: 2,
+    width: "100%",
+    backgroundColor: "#e6e6e6"
   }
 });
 
