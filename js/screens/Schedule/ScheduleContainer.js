@@ -44,7 +44,7 @@ export default class ScheduleContainer extends Component {
             }, [])
             .sort((a, b) => a.title - b.title);
           return (
-            <Schedule sessions={sessions} navigation={this.props.navigation} />
+            <Schedule navigation={this.props.navigation} sessions={sessions} />
           );
         }}
       </Query>

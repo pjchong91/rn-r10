@@ -34,9 +34,6 @@ const scheduleStack = createStackNavigator(
     Session: {
       screen: Session
     }
-    // About: {
-    //   screen: About
-    // }
   },
   {
     initialRouteName: "Schedule",

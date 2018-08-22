@@ -11,7 +11,7 @@ export default class FavsContainer extends Component {
       <FavsContext.Consumer>
         {values => {
           console.log(values);
-          return <Favs />;
+          return <Favs favIds={values.favIds} />;
         }}
       </FavsContext.Consumer>
     );

@@ -9,12 +9,9 @@ import {
 import styles from "./styles";
 import Moment from "react-moment";
 import moment from "moment";
-import { withNavigation } from "react-navigation";
+// import { withNavigation } from "react-navigation";
 
-const Schedule = (sessions, navigation) => {
-  // console.log();
-
-  console.log(navigation, "schedule navigation");
+const Schedule = ({ sessions, navigation }) => {
   renderSeparator = () => {
     return <View style={styles.separator} />;
   };
@@ -26,7 +23,6 @@ const Schedule = (sessions, navigation) => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        {console.log(navigation)}
         <SectionList
           renderItem={({ item, index, section }) => (
             <TouchableHighlight
@@ -48,7 +44,7 @@ const Schedule = (sessions, navigation) => {
               {moment(new Date(title)).format("hh:mm A")}
             </Text>
           )}
-          sections={sessions.sessions}
+          sections={sessions}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
         />
@@ -57,4 +53,4 @@ const Schedule = (sessions, navigation) => {
   );
 };
 
-export default withNavigation(Schedule);
+export default Schedule;
