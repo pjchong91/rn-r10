@@ -48,7 +48,7 @@ class FavsProvider extends Component {
     return (
       <FavsContext.Provider
         value={{
-          ...this.state.favIds,
+          ...this.state,
           getFavs: this.getFavedSessionIds,
           addFav: this.addFavSession,
           removeFav: this.removeFavSession
