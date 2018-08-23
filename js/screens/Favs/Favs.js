@@ -13,16 +13,10 @@ const Favs = ({ sessions, navigation, favIds }) => {
   renderSeparator = () => {
     return <View style={styles.separator} />;
   };
-  console.log(sessions, "from favs");
-  favIds.favIds.map(item => console.log(item.id));
 
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text>Sup</Text>
-        <Text>Sup</Text>
-        <Text>Sup</Text>
-        <Text>Sup</Text>
         <SectionList
           renderItem={({ item, index, section }) => (
             <TouchableHighlight

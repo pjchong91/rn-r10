@@ -3,7 +3,6 @@ import { Text, View, Image, ScrollView } from "react-native";
 import styles from "./styles";
 
 const About = conducts => {
-  console.log(conducts);
   return (
     <View style={styles.container}>
       <ScrollView>

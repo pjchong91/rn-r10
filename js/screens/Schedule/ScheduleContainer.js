@@ -3,13 +3,15 @@ import Schedule from "./Schedule";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
+import FavsContext from "./../../context/FavsContext";
 
 export default class ScheduleContainer extends Component {
   static navigationOptions = {
     title: "Schedule"
   };
-
   render() {
+    console.log(this.props.navigation);
+
     return (
       <Query
         query={gql`
@@ -28,7 +30,6 @@ export default class ScheduleContainer extends Component {
           if (error) return <Text>Error :(</Text>;
           // Helper to format GraphQL data into section list data
 
-          console.log(this.props.navigation, "navigation");
           let sessions = allSessions
             .reduce((acc, curr) => {
               const timeExists = acc.find(
@@ -44,7 +45,17 @@ export default class ScheduleContainer extends Component {
             }, [])
             .sort((a, b) => a.title - b.title);
           return (
-            <Schedule navigation={this.props.navigation} sessions={sessions} />
+            <FavsContext.Consumer>
+              {values => {
+                return (
+                  <Schedule
+                    navigation={this.props.navigation}
+                    sessions={sessions}
+                    favIds={values}
+                  />
+                );
+              }}
+            </FavsContext.Consumer>
           );
         }}
       </Query>

@@ -16,7 +16,6 @@ const Session = ({ navigation, session, favIds }) => {
   const allFavs = [];
   favIds.favIds.map(item => allFavs.push(item.id));
   const faved = allFavs.includes(sessionData.id);
-  console.log(allFavs);
 
   return (
     <View style={styles.container}>
@@ -38,7 +37,6 @@ const Session = ({ navigation, session, favIds }) => {
           <Button
             onPress={() => {
               favIds.addFav(sessionData.id);
-              console.log(sessionData.id);
             }}
             title="Add to Favs"
           />
@@ -46,7 +44,6 @@ const Session = ({ navigation, session, favIds }) => {
           <Button
             onPress={() => {
               favIds.removeFav(sessionData.id);
-              console.log(sessionData.id);
             }}
             title="Remove from Favs"
           />

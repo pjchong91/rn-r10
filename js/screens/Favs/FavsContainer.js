@@ -30,35 +30,18 @@ export default class FavsContainer extends Component {
           // Helper to format GraphQL data into section list data
 
           let sessions = allSessions;
-          // .reduce((acc, curr) => {
-          //   const timeExists = acc.find(
-          //     section => section.title === curr.startTime
-          //   );
-          //   timeExists
-          //     ? timeExists.data.push(curr)
-          //     : acc.push({
-          //         title: curr.startTime,
-          //         data: [curr]
-          //       });
-          //   return acc;
-          // }, [])
-          // .sort((a, b) => a.title - b.title);
+
           return (
             <FavsContext.Consumer>
               {values => {
-                console.log(values, "values");
                 const favIdArr = [];
-                // values.favIds.map(item => favIdArr.push(item.id));
-                values.favIds.map(item => console.log(item.id, "itemid"));
-                console.log(favIdArr, "favArr");
-                console.log(sessions, "sessions");
+                values.favIds.map(item => favIdArr.push(item.id));
 
                 const favedSessions = allSessions.filter(session =>
                   favIdArr.includes(session.id)
                 );
-                //TODO: INCLUDES THE ID?? THEN PUSH...
 
-                favedSessions
+                let sessions = favedSessions
                   .reduce((acc, curr) => {
                     const timeExists = acc.find(
                       section => section.title === curr.startTime
@@ -77,7 +60,7 @@ export default class FavsContainer extends Component {
                   <Favs
                     navigation={this.props.navigation}
                     favIds={values}
-                    sessions={favedSessions}
+                    sessions={sessions}
                   />
                 );
               }}
