@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import styles from "./styles";
 import moment from "moment";
+import SectionListCustom from "../../components/SectionListCustom/SectionListCustom";
 
 const Favs = ({ sessions, navigation, favIds }) => {
   renderSeparator = () => {
@@ -17,7 +18,12 @@ const Favs = ({ sessions, navigation, favIds }) => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <SectionList
+        <SectionListCustom
+          sessions={sessions}
+          navigation={navigation}
+          favIds={favIds}
+        />
+        {/* <SectionList
           renderItem={({ item, index, section }) => (
             <TouchableHighlight
               key={item.id}
@@ -41,7 +47,7 @@ const Favs = ({ sessions, navigation, favIds }) => {
           sections={sessions}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
-        />
+        /> */}
       </ScrollView>
     </View>
   );
