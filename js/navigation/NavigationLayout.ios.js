@@ -4,6 +4,7 @@ import {
   createStackNavigator
 } from "react-navigation";
 import { sharedNavigationOptions } from "./config";
+import { Platform } from "react-native";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -47,9 +48,14 @@ const favsStack = createStackNavigator(
   {
     Favs: {
       screen: Favs
+    },
+    Session: {
+      screen: Session
     }
   },
   {
+    initialRouteName: "Favs",
+
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
     })
@@ -81,6 +87,11 @@ export default createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
+        const heartIcon = Platform.select({
+          ios: "ios-heart",
+
+          android: "md-heart"
+        });
         if (routeName === "About") {
           iconName = `ios-information-circle${focused ? "" : "-outline"}`;
         }
@@ -88,7 +99,7 @@ export default createBottomTabNavigator(
           iconName = `ios-calendar`;
         }
         if (routeName === "Favs") {
-          iconName = `ios-heart${focused ? "" : "-empty"}`;
+          iconName = `${heartIcon}${focused ? "" : "-empty"}`;
         }
         if (routeName === "Map") {
           iconName = `ios-map`;
