@@ -26,31 +26,33 @@ export default class SessionContainer extends Component {
             image
             name
           }
+          id
         }
       }
     `;
 
     return (
-      <FavsContext.Consumer>
-        <Query query={GET_SESSION_QUERY} variables={{ id: sessionId }}>
-          {({ loading, error, data }) => {
-            if (loading) return <Text>Loading...</Text>;
-            if (error) return <Text>Error :(</Text>;
+      //
+      <Query query={GET_SESSION_QUERY} variables={{ id: sessionId }}>
+        {({ loading, error, data }) => {
+          if (loading) return <Text>Loading...</Text>;
+          if (error) return <Text>Error :(</Text>;
 
-            {
-              values => {
+          return (
+            <FavsContext.Consumer>
+              {values => {
                 return (
                   <Session
                     session={data}
                     navigation={this.props.navigation}
-                    favIds={values.favIds}
+                    favIds={values}
                   />
                 );
-              };
-            }
-          }}
-        </Query>
-      </FavsContext.Consumer>
+              }}
+            </FavsContext.Consumer>
+          );
+        }}
+      </Query>
     );
   }
 }

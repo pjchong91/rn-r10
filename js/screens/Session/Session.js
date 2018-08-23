@@ -11,9 +11,12 @@ import styles from "./styles";
 import Moment from "react-moment";
 import moment from "moment";
 
-const Session = ({ navigation, session }) => {
+const Session = ({ navigation, session, favIds }) => {
   const sessionData = session.Session;
-  console.log(sessionData);
+  const allFavs = [];
+  favIds.favIds.map(item => allFavs.push(item.id));
+  const faved = allFavs.includes(sessionData.id);
+  console.log(allFavs);
 
   return (
     <View style={styles.container}>
@@ -31,12 +34,24 @@ const Session = ({ navigation, session }) => {
           <Text>{sessionData.speaker.name}</Text>
         </View>
         <View style={styles.divider} />
-        <Button
-          onPress={() => {
-            console.log("hello");
-          }}
-          title="Add to Favs"
-        />
+        {!faved ? (
+          <Button
+            onPress={() => {
+              favIds.addFav(sessionData.id);
+              console.log(sessionData.id);
+            }}
+            title="Add to Favs"
+          />
+        ) : (
+          <Button
+            onPress={() => {
+              favIds.removeFav(sessionData.id);
+              console.log(sessionData.id);
+            }}
+            title="Remove from Favs"
+          />
+        )}
+
         {/* <SectionList
           renderItem={({ item, index, section }) => (
             <View key={item.id} style={styles.sessionText}>
