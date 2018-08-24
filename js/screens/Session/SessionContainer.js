@@ -25,6 +25,7 @@ export default class SessionContainer extends Component {
           speaker {
             image
             name
+            id
           }
           id
         }

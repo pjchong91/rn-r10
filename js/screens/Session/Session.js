@@ -35,6 +35,9 @@ const Session = ({ navigation, session, favIds }) => {
                 navigation.navigate("Speaker", {
                   speakerId: sessionData.speaker.id
                 });
+                {
+                  console.log(sessionData.speaker, "speakerId");
+                }
               }}
             >
               <View style={styles.presentor}>
