@@ -3,6 +3,7 @@ import { Text, View, Image, ScrollView } from "react-native";
 import styles from "./styles";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import PageLoader from "./../../components/PageLoader";
 
 const Map = () => {
   return (
@@ -39,7 +40,7 @@ const Map = () => {
           `}
         >
           {({ loading, error, data }) => {
-            if (loading) return <Text>Loading...</Text>;
+            if (loading) return <PageLoader />;
             if (error) return <Text>Error :(</Text>;
 
             return data.allConducts.map(({ title, description, id }) => (

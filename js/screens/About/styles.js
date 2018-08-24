@@ -41,6 +41,16 @@ const styles = StyleSheet.create({
   },
   codeText: {
     fontSize: 18
+  },
+  loaderStyles: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  loaderText: {
+    color: "#9963ea",
+    textAlign: "center",
+    fontSize: 24,
+    fontWeight: "500"
   }
 });
 

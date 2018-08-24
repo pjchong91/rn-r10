@@ -1,19 +1,53 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    backgroundColor: "white"
+  },
   presentor: {
     flexDirection: "row",
     // justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
     // backgroundColor: "white"
-    // padding: 20
+    paddingTop: 20,
+    paddingBottom: 20
+  },
+  presentorContainer: {
+    marginTop: 20
+  },
+  presentorIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 10
+  },
+  presentorName: {
+    fontWeight: "600"
   },
   divider: {
     height: 1,
-    backgroundColor: "#e6e6e6"
+    backgroundColor: "#e6e6e6",
+    marginBottom: 20
   },
-  container: {
-    backgroundColor: "white"
+  sessionLocation: {
+    fontSize: 16,
+    fontWeight: "400",
+    color: "#999999"
+  },
+  sessionTitle: {
+    fontSize: 24,
+    fontWeight: "600"
+  },
+  sessionTime: {
+    color: "#cf392a",
+    fontWeight: "600",
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  heartAlign: {
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 });
 

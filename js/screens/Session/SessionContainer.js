@@ -4,6 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
 import FavsContext from "./../../context/FavsContext";
+import PageLoader from "./../../components/PageLoader";
 
 // Helper to format GraphQL data into section list data
 
@@ -36,7 +37,7 @@ export default class SessionContainer extends Component {
       //
       <Query query={GET_SESSION_QUERY} variables={{ id: sessionId }}>
         {({ loading, error, data }) => {
-          if (loading) return <Text>Loading...</Text>;
+          if (loading) return <PageLoader />;
           if (error) return <Text>Error :(</Text>;
 
           return (

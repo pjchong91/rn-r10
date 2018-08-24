@@ -3,14 +3,13 @@ import {
   Text,
   View,
   ScrollView,
-  SectionList,
   Image,
   Button,
   TouchableHighlight
 } from "react-native";
 import styles from "./styles";
-import Moment from "react-moment";
 import moment from "moment";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const Session = ({ navigation, session, favIds }) => {
   const sessionData = session.Session;
@@ -22,15 +21,20 @@ const Session = ({ navigation, session, favIds }) => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text>{sessionData.location}</Text>
-        <Text>{sessionData.title}</Text>
-        <Text>{moment(new Date(sessionData.startTime)).format("hh:mm A")}</Text>
+        <View style={styles.heartAlign}>
+          <Text style={styles.sessionLocation}>{sessionData.location}</Text>
+          {!faved ? <Text /> : <Icon name="md-heart" size={18} color="red" />}
+        </View>
+        <Text style={styles.sessionTitle}>{sessionData.title}</Text>
+        <Text style={styles.sessionTime}>
+          {moment(new Date(sessionData.startTime)).format("hh:mm A")}
+        </Text>
         <Text>{sessionData.description}</Text>
         {!sessionData.speaker ? (
           <Text />
         ) : (
           <Fragment>
-            <Text>Presented by:</Text>
+            <Text style={styles.presentorContainer}>Presented by:</Text>
             <TouchableHighlight
               onPress={() => {
                 navigation.navigate("Speaker", {
@@ -44,11 +48,13 @@ const Session = ({ navigation, session, favIds }) => {
                 ) : (
                   <Image
                     source={{ uri: sessionData.speaker.image }}
-                    style={{ width: 50, height: 50, borderRadius: 25 }}
+                    style={styles.presentorIcon}
                   />
                 )}
 
-                <Text>{sessionData.speaker.name}</Text>
+                <Text style={styles.presentorName}>
+                  {sessionData.speaker.name}
+                </Text>
               </View>
             </TouchableHighlight>
           </Fragment>
@@ -70,23 +76,6 @@ const Session = ({ navigation, session, favIds }) => {
             title="Remove from Favs"
           />
         )}
-
-        {/* <SectionList
-          renderItem={({ item, index, section }) => (
-            <View key={item.id} style={styles.sessionText}>
-              <Text style={styles.sessionTitle}>{item.title}</Text>
-              <Text style={styles.sessionLocation}>{item.location}</Text>
-            </View>
-          )}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.timeHeader}>
-              {moment(new Date(title)).format("hh:mm A")}
-            </Text>
-          )}
-          sections={sessions.sessions}
-          keyExtractor={item => item.id}
-          ItemSeparatorComponent={this.renderSeparator}
-        /> */}
       </ScrollView>
     </View>
   );
