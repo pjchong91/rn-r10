@@ -12,6 +12,9 @@ import styles from "./styles";
 import Moment from "react-moment";
 import moment from "moment";
 import { Linking } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+
+import { Header } from "react-navigation";
 
 const Speaker = ({ navigation, data }) => {
   handleClick = () => {
@@ -25,18 +28,33 @@ const Speaker = ({ navigation, data }) => {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Image
-        source={{ uri: data.Speaker.image }}
-        style={{ width: 50, height: 50, borderRadius: 25 }}
-      />
-      <Text>{data.Speaker.name}</Text>
-      <Text>{data.Speaker.bio}</Text>
+    <View style={styles.container}>
+      <View style={styles.speakerHeader}>
+        <TouchableHighlight onPress={() => navigation.goBack()}>
+          <Icon
+            style={styles.headerIcon}
+            name="md-close"
+            size={25}
+            color="white"
+          />
+        </TouchableHighlight>
+        <Text style={styles.speakerHeaderText}>About the Speaker</Text>
+      </View>
+      <ScrollView>
+        <View style={styles.speakerModal}>
+          <Image
+            source={{ uri: data.Speaker.image }}
+            style={styles.speakerImage}
+          />
+          <Text style={styles.speakerName}>{data.Speaker.name}</Text>
+          <Text style={styles.speakerBio}>{data.Speaker.bio}</Text>
 
-      <Button
-        onPress={() => this.handleClick()}
-        title="Read More on Wikipedia"
-      />
+          <Button
+            onPress={() => this.handleClick()}
+            title="Read More on Wikipedia"
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 };

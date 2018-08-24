@@ -13,10 +13,10 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 const Session = ({ navigation, session, favIds }) => {
   const sessionData = session.Session;
-  // console.log(favIds, "onsession");
-  // const allFavs = [];
-  // favIds.favIds.map(item => allFavs.push(item.id));
-  const faved = favIds.includes(sessionData.id);
+  console.log(favIds, "onsession");
+  const allFavs = [];
+  favIds.favIds.map(item => allFavs.push(item.id));
+  const faved = allFavs.includes(sessionData.id);
 
   return (
     <View style={styles.container}>

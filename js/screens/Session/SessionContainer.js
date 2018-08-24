@@ -43,13 +43,13 @@ export default class SessionContainer extends Component {
           return (
             <FavsContext.Consumer>
               {values => {
-                const favIdArr = [];
-                values.favIds.map(item => favIdArr.push(item.id));
+                // const favIdArr = [];
+                // values.favIds.map(item => favIdArr.push(item.id));
                 return (
                   <Session
                     session={data}
                     navigation={this.props.navigation}
-                    favIds={favIdArr}
+                    favIds={values}
                     sessionId={sessionId}
                   />
                 );

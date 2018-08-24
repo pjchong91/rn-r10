@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Speaker from "./Speaker";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import PageLoader from "./../../components/PageLoader/PageLoader";
 // Helper to format GraphQL data into section list data
 
 export default class SpeakerContainer extends Component {
   static navigationOptions = {
     title: "About the Speaker"
+    /* Your custom header */
   };
 
   render() {

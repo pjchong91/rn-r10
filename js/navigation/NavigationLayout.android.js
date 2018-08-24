@@ -32,13 +32,13 @@ const scheduleStack = createStackNavigator(
     },
     Session: {
       screen: Session
-    },
-    Speaker: {
-      screen: Speaker
     }
+    // Speaker: {
+    //   screen: Speaker
+    // }
   },
   {
-    mode: "modal",
+    // mode: "modal",
     initialRouteName: "Schedule",
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
@@ -99,18 +99,31 @@ const renderIcon = (iconName, tintColor) => {
   return <Icon name={iconName} size={25} color={tintColor} />;
 };
 mapStack.navigationOptions = {
-  drawerIcon: ({ tintColor }) => renderIcon("md-map", tintColor)
+  drawerIcon: ({ tintColor }) => renderIcon("md-map", tintColor),
+  headerLeft: ({ navigation }) => MenuIcon(navigation)
 };
 scheduleStack.navigationOptions = {
-  drawerIcon: ({ tintColor }) => renderIcon("md-calendar", tintColor)
+  drawerIcon: ({ tintColor }) => renderIcon("md-calendar", tintColor),
+  headerLeft: ({ navigation }) => MenuIcon(navigation)
 };
 aboutStack.navigationOptions = {
-  drawerIcon: ({ tintColor }) => renderIcon("md-information-circle", tintColor)
+  drawerIcon: ({ tintColor }) => renderIcon("md-information-circle", tintColor),
+  headerLeft: ({ navigation }) => MenuIcon(navigation)
 };
 //TODO : ACCOUNT FOR EMPTYS
 favsStack.navigationOptions = {
-  drawerIcon: ({ tintColor }) => renderIcon("md-heart", tintColor)
+  drawerIcon: ({ tintColor }) => renderIcon("md-heart", tintColor),
+  headerLeft: ({ navigation }) => MenuIcon(navigation)
 };
+
+const MenuIcon = ({ navigation }) => (
+  <Icon
+    name="three-bars"
+    size={30}
+    color="#000"
+    onPress={() => navigation.navigate("DrawerOpen")}
+  />
+);
 
 export default createDrawerNavigator({
   Schedule: scheduleStack,
