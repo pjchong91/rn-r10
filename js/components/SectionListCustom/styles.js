@@ -36,6 +36,10 @@ const styles = StyleSheet.create({
     height: 2,
     width: "100%",
     backgroundColor: "#e6e6e6"
+  },
+  heartAlign: {
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 });
 

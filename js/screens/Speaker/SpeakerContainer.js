@@ -3,7 +3,6 @@ import Speaker from "./Speaker";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
-import FavsContext from "./../../context/FavsContext";
 
 // Helper to format GraphQL data into section list data
 
@@ -14,7 +13,6 @@ export default class SpeakerContainer extends Component {
 
   render() {
     speakerId = this.props.navigation.getParam("speakerId");
-    console.log(speakerId);
 
     const GET_SPEAKER_QUERY = gql`
       query($id: ID) {
@@ -33,20 +31,7 @@ export default class SpeakerContainer extends Component {
           if (loading) return <Text>Loading...</Text>;
           if (error) return <Text>Error :(</Text>;
 
-          return (
-            <Speaker navigation={this.props.navigation} data={data} />
-            // <FavsContext.Consumer>
-            //   {values => {
-            //     return (
-            //       <Session
-            //         session={data}
-            //         navigation={this.props.navigation}
-            //         favIds={values}
-            //       />
-            //     );
-            //   }}
-            // </FavsContext.Consumer>
-          );
+          return <Speaker navigation={this.props.navigation} data={data} />;
         }}
       </Query>
     );

@@ -10,8 +10,6 @@ export default class ScheduleContainer extends Component {
     title: "Schedule"
   };
   render() {
-    console.log(this.props.navigation);
-
     return (
       <Query
         query={gql`
@@ -47,11 +45,13 @@ export default class ScheduleContainer extends Component {
           return (
             <FavsContext.Consumer>
               {values => {
+                const favIdArr = [];
+                values.favIds.map(item => favIdArr.push(item.id));
                 return (
                   <Schedule
                     navigation={this.props.navigation}
                     sessions={sessions}
-                    favIds={values}
+                    favIds={favIdArr}
                   />
                 );
               }}

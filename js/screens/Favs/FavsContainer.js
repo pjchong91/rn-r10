@@ -59,7 +59,7 @@ export default class FavsContainer extends Component {
                 return (
                   <Favs
                     navigation={this.props.navigation}
-                    favIds={values}
+                    favIds={favIdArr}
                     sessions={sessions}
                   />
                 );

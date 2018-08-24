@@ -24,8 +24,6 @@ const Speaker = ({ navigation, data }) => {
     });
   };
 
-  console.log(data, "speaker");
-  console.log(data.speaker);
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Image
@@ -34,7 +32,7 @@ const Speaker = ({ navigation, data }) => {
       />
       <Text>{data.Speaker.name}</Text>
       <Text>{data.Speaker.bio}</Text>
-      <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+
       <Button
         onPress={() => this.handleClick()}
         title="Read More on Wikipedia"

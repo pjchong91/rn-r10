@@ -1,16 +1,7 @@
 import React from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  SectionList,
-  TouchableHighlight
-} from "react-native";
+import { View, ScrollView } from "react-native";
 import styles from "./styles";
-import Moment from "react-moment";
-import moment from "moment";
 import SectionListCustom from "../../components/SectionListCustom/SectionListCustom";
-// import { withNavigation } from "react-navigation";
 
 const Schedule = ({ sessions, navigation, favIds }) => {
   return (

@@ -14,9 +14,10 @@ import moment from "moment";
 
 const Session = ({ navigation, session, favIds }) => {
   const sessionData = session.Session;
-  const allFavs = [];
-  favIds.favIds.map(item => allFavs.push(item.id));
-  const faved = allFavs.includes(sessionData.id);
+  // console.log(favIds, "onsession");
+  // const allFavs = [];
+  // favIds.favIds.map(item => allFavs.push(item.id));
+  const faved = favIds.includes(sessionData.id);
 
   return (
     <View style={styles.container}>
@@ -35,9 +36,6 @@ const Session = ({ navigation, session, favIds }) => {
                 navigation.navigate("Speaker", {
                   speakerId: sessionData.speaker.id
                 });
-                {
-                  console.log(sessionData.speaker, "speakerId");
-                }
               }}
             >
               <View style={styles.presentor}>
