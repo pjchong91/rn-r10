@@ -3,7 +3,7 @@ import { Text, View, Image, ScrollView } from "react-native";
 import styles from "./styles";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import PageLoader from "./../../components/PageLoader";
+import PageLoader from "./../../components/PageLoader/PageLoader";
 
 const Map = () => {
   return (

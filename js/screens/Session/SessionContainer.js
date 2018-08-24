@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
 import FavsContext from "./../../context/FavsContext";
-import PageLoader from "./../../components/PageLoader";
+import PageLoader from "./../../components/PageLoader/PageLoader";
 
 // Helper to format GraphQL data into section list data
 

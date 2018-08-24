@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text, ActivityIndicator, View } from "react-native";
 import styles from "./styles";
-import PageLoader from "./../../components/PageLoader";
+import PageLoader from "../../components/PageLoader/PageLoader";
 
 export default class AboutContainer extends Component {
   static navigationOptions = {
@@ -24,7 +24,9 @@ export default class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data: { allConducts } }) => {
-          if (loading) return <PageLoader />;
+          if (loading) return;
+          <PageLoader />;
+          // <Text />;
           if (error) return <Text>Error :(</Text>;
 
           return <About conducts={allConducts} />;
