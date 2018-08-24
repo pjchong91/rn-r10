@@ -10,6 +10,7 @@ import Schedule from "./../screens/Schedule";
 import Favs from "./../screens/Favs";
 import Map from "./../screens/Map";
 import Session from "./../screens/Session";
+import Speaker from "./../screens/Speaker";
 
 const aboutStack = createStackNavigator(
   {
@@ -31,9 +32,13 @@ const scheduleStack = createStackNavigator(
     },
     Session: {
       screen: Session
+    },
+    Speaker: {
+      screen: Speaker
     }
   },
   {
+    mode: "modal",
     initialRouteName: "Schedule",
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
@@ -71,6 +76,24 @@ const mapStack = createStackNavigator(
     })
   }
 );
+
+// const speakerStack = createStackNavigator(
+//   {
+//     Session: {
+//       screen: Session
+//     },
+//     Speaker: {
+//       screen: Speaker
+//     }
+//   },
+//   {
+//     initialRouteName: "Session",
+//     mode: "modal",
+//     navigationOptions: ({ navigation }) => ({
+//       ...sharedNavigationOptions(navigation)
+//     })
+//   }
+// );
 
 const renderIcon = (iconName, tintColor) => {
   return <Icon name={iconName} size={25} color={tintColor} />;

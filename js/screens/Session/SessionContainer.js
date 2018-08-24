@@ -46,6 +46,7 @@ export default class SessionContainer extends Component {
                     session={data}
                     navigation={this.props.navigation}
                     favIds={values}
+                    sessionId={sessionId}
                   />
                 );
               }}

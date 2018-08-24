@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   Text,
   View,
   ScrollView,
   SectionList,
   Image,
-  Button
+  Button,
+  TouchableHighlight
 } from "react-native";
 import styles from "./styles";
 import Moment from "react-moment";
@@ -24,14 +25,34 @@ const Session = ({ navigation, session, favIds }) => {
         <Text>{sessionData.title}</Text>
         <Text>{moment(new Date(sessionData.startTime)).format("hh:mm A")}</Text>
         <Text>{sessionData.description}</Text>
-        <Text>Presented by:</Text>
-        <View style={styles.presentor}>
-          <Image
-            source={{ uri: sessionData.speaker.image }}
-            style={{ width: 50, height: 50, borderRadius: 25 }}
-          />
-          <Text>{sessionData.speaker.name}</Text>
-        </View>
+        {!sessionData.speaker ? (
+          <Text />
+        ) : (
+          <Fragment>
+            <Text>Presented by:</Text>
+            <TouchableHighlight
+              onPress={() => {
+                navigation.navigate("Speaker", {
+                  speakerId: sessionData.speaker.id
+                });
+              }}
+            >
+              <View style={styles.presentor}>
+                {!sessionData.speaker.image ? (
+                  <Text />
+                ) : (
+                  <Image
+                    source={{ uri: sessionData.speaker.image }}
+                    style={{ width: 50, height: 50, borderRadius: 25 }}
+                  />
+                )}
+
+                <Text>{sessionData.speaker.name}</Text>
+              </View>
+            </TouchableHighlight>
+          </Fragment>
+        )}
+
         <View style={styles.divider} />
         {!faved ? (
           <Button
