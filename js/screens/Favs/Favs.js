@@ -16,14 +16,13 @@ const Favs = ({ sessions, navigation, favIds }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <SectionListCustom
-          sessions={sessions}
-          navigation={navigation}
-          favIds={favIds}
-        />
-        {/* <SectionList
+    <ScrollView>
+      <SectionListCustom
+        sessions={sessions}
+        navigation={navigation}
+        favIds={favIds}
+      />
+      {/* <SectionList
           renderItem={({ item, index, section }) => (
             <TouchableHighlight
               key={item.id}
@@ -48,8 +47,7 @@ const Favs = ({ sessions, navigation, favIds }) => {
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
         /> */}
-      </ScrollView>
-    </View>
+    </ScrollView>
   );
 };
 
