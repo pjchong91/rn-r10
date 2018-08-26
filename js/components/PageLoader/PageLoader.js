@@ -1,11 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Text, ActivityIndicator, View } from "react-native";
 import styles from "./styles";
+import Styles from "./../../config/styles.js";
 
 const PageLoader = () => (
   <View style={styles.loaderStyles}>
     <ActivityIndicator size="large" color="#9963ea" />
-    <Text style={styles.loaderText}>Loading ... </Text>
+    <Text style={[styles.loaderText, Styles.font]}>Loading ... </Text>
   </View>
 );
 

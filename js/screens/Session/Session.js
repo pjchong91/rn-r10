@@ -10,22 +10,10 @@ import {
   StyleSheet
 } from "react-native";
 import styles from "./styles";
+import Styles from "./../../config/styles.js";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
-
-const GradientButton = props => (
-  <View style={{ backgroundColor: "white", overflow: "hidden" }}>
-    <LinearGradient
-      colors={["#9963ea", "#8797D6"]}
-      start={{ x: 0.0, y: 1.0 }}
-      end={{ x: 1.0, y: 0.0 }}
-      style={[StyleSheet.absoluteFill, { height: 64, width: "100%" }]}
-    />
-    <TouchableOpacity />
-    {/* <Header {...props} /> */}
-  </View>
-);
 
 const Session = ({ navigation, session, favIds }) => {
   const sessionData = session.Session;
@@ -37,19 +25,33 @@ const Session = ({ navigation, session, favIds }) => {
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.heartAlign}>
-          <Text style={styles.sessionLocation}>{sessionData.location}</Text>
-          {!faved ? <Text /> : <Icon name="md-heart" size={18} color="red" />}
+          <Text style={[styles.sessionLocation, Styles.font]}>
+            {sessionData.location}
+          </Text>
+          {!faved ? (
+            <Text />
+          ) : (
+            <Icon
+              name={Platform.select({ ios: "ios-heart", android: "md-heart" })}
+              size={18}
+              color="red"
+            />
+          )}
         </View>
-        <Text style={styles.sessionTitle}>{sessionData.title}</Text>
-        <Text style={styles.sessionTime}>
+        <Text style={[styles.sessionTitle, Styles.font]}>
+          {sessionData.title}
+        </Text>
+        <Text style={[styles.sessionTime, Styles.font]}>
           {moment(new Date(sessionData.startTime)).format("hh:mm A")}
         </Text>
-        <Text>{sessionData.description}</Text>
+        <Text style={[Styles.font]}>{sessionData.description}</Text>
         {!sessionData.speaker ? (
           <Text />
         ) : (
           <Fragment>
-            <Text style={styles.presentorContainer}>Presented by:</Text>
+            <Text style={[styles.presentorContainer, Styles.font]}>
+              Presented by:
+            </Text>
             <TouchableHighlight
               onPress={() => {
                 navigation.navigate("Speaker", {
@@ -57,7 +59,7 @@ const Session = ({ navigation, session, favIds }) => {
                 });
               }}
             >
-              <View style={styles.presentor}>
+              <View style={[styles.presentor, Styles.font]}>
                 {!sessionData.speaker.image ? (
                   <Text />
                 ) : (
@@ -67,7 +69,7 @@ const Session = ({ navigation, session, favIds }) => {
                   />
                 )}
 
-                <Text style={styles.presentorName}>
+                <Text style={[styles.presentorName, Styles.font]}>
                   {sessionData.speaker.name}
                 </Text>
               </View>
@@ -83,9 +85,10 @@ const Session = ({ navigation, session, favIds }) => {
           end={{ x: 1.0, y: 0.0 }}
           style={{
             height: 50,
-            width: "60%",
+            width: "auto",
             marginLeft: "auto",
-            marginRight: "auto"
+            marginRight: "auto",
+            borderRadius: 50
           }}
         >
           {!faved ? (
@@ -95,7 +98,7 @@ const Session = ({ navigation, session, favIds }) => {
               }}
               style={styles.buttonTextContainer}
             >
-              <Text style={styles.buttonText}>Add to Favs</Text>
+              <Text style={[styles.buttonText, Styles.font]}>Add to Favs</Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
@@ -104,7 +107,9 @@ const Session = ({ navigation, session, favIds }) => {
               }}
               style={styles.buttonTextContainer}
             >
-              <Text style={styles.buttonText}>Remove from Favs</Text>
+              <Text style={[styles.buttonText, Styles.font]}>
+                Remove from Favs
+              </Text>
             </TouchableOpacity>
           )}
         </LinearGradient>

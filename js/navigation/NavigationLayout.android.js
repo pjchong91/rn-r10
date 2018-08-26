@@ -114,9 +114,16 @@ favsStack.navigationOptions = {
   drawerIcon: ({ tintColor }) => renderIcon("md-heart", tintColor)
 };
 
-export default createDrawerNavigator({
-  Schedule: scheduleStack,
-  Map: mapStack,
-  Favs: favsStack,
-  About: aboutStack
-});
+export default createDrawerNavigator(
+  {
+    Schedule: scheduleStack,
+    Map: mapStack,
+    Favs: favsStack,
+    About: aboutStack
+  },
+  {
+    contentOptions: {
+      activeTintColor: "#9963ea"
+    }
+  }
+);

@@ -14,12 +14,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingTop: 5,
     paddingBottom: 5,
-    fontWeight: "600",
-    fontFamily: "Montserrat"
+    fontWeight: "600"
   },
   sessionText: {
-    padding: 10,
-    fontFamily: "Montserrat"
+    padding: 10
     // lineHeight: 2.0
   },
   sessionTitle: {

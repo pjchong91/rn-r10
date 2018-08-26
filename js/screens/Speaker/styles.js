@@ -43,6 +43,22 @@ const styles = StyleSheet.create({
     color: "#999999",
     fontSize: 16,
     lineHeight: 24
+  },
+  buttonText: {
+    textAlign: "center",
+    lineHeight: 20,
+    fontSize: 20,
+    color: "white",
+    fontWeight: "600",
+    paddingTop: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 10
+  },
+  buttonTextContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 

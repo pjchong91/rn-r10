@@ -50,9 +50,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   buttonText: {
-    textAlign: "center"
+    textAlign: "center",
+    lineHeight: 20,
+    fontSize: 20,
+    color: "white",
+    fontWeight: "600",
+    paddingTop: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 10
   },
   buttonTextContainer: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center"
   }

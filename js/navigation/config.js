@@ -39,6 +39,9 @@ export const sharedNavigationOptions = navigation => ({
   headerTintColor: "#fff",
   headerTitleStyle: {
     fontWeight: "600",
-    fontFamily: "Montserrat-Light"
+    fontFamily: Platform.select({
+      ios: "Montserrat",
+      android: "Montserrat-Regular"
+    })
   }
 });

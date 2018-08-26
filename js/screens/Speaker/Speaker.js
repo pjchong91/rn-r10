@@ -1,20 +1,18 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {
   Text,
   View,
   ScrollView,
-  SectionList,
   Image,
   Button,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } from "react-native";
 import styles from "./styles";
-import Moment from "react-moment";
-import moment from "moment";
+import Styles from "./../../config/styles.js";
 import { Linking } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-
-import { Header } from "react-navigation";
+import LinearGradient from "react-native-linear-gradient";
 
 const Speaker = ({ navigation, data }) => {
   handleClick = () => {
@@ -38,7 +36,9 @@ const Speaker = ({ navigation, data }) => {
             color="white"
           />
         </TouchableHighlight>
-        <Text style={styles.speakerHeaderText}>About the Speaker</Text>
+        <Text style={[styles.speakerHeaderText, Styles.font]}>
+          About the Speaker
+        </Text>
       </View>
       <ScrollView>
         <View style={styles.speakerModal}>
@@ -46,13 +46,33 @@ const Speaker = ({ navigation, data }) => {
             source={{ uri: data.Speaker.image }}
             style={styles.speakerImage}
           />
-          <Text style={styles.speakerName}>{data.Speaker.name}</Text>
-          <Text style={styles.speakerBio}>{data.Speaker.bio}</Text>
-
-          <Button
-            onPress={() => this.handleClick()}
-            title="Read More on Wikipedia"
-          />
+          <Text style={[styles.speakerName, Styles.font]}>
+            {data.Speaker.name}
+          </Text>
+          <Text style={[styles.speakerBio, Styles.font]}>
+            {data.Speaker.bio}
+          </Text>
+          <LinearGradient
+            colors={["#9963ea", "#8797D6"]}
+            start={{ x: 0.0, y: 1.0 }}
+            end={{ x: 1.0, y: 0.0 }}
+            style={{
+              height: 50,
+              width: "auto",
+              marginLeft: "auto",
+              marginRight: "auto",
+              borderRadius: 50
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => this.handleClick()}
+              style={styles.buttonTextContainer}
+            >
+              <Text style={[Styles.font, styles.buttonText]}>
+                Read More on Wikipedia
+              </Text>
+            </TouchableOpacity>
+          </LinearGradient>
         </View>
       </ScrollView>
     </View>

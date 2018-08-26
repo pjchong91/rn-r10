@@ -1,7 +1,8 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import { Text, TouchableOpacity, Animated, View } from "react-native";
 import styles from "./styles";
-import Icon from "react-native-vector-icons/Ionicons";
+import Styles from "./../../config/styles.js";
+// import Icon from "react-native-vector-icons/Ionicons";
 
 export default class ConductItem extends Component {
   constructor(props) {
@@ -30,12 +31,12 @@ export default class ConductItem extends Component {
   height = new Animated.Value(0);
   rotation = new Animated.Value(0);
   render() {
+    // //TODO: '+' Rotation after being clicked
     // const spin = this.state.rotation.interpolate({
     //   inputRange: [0.5, 1],
     //   outputRange: ["0deg", "360deg"]
     // });
 
-    //TODO: '+' Rotation after being clicked
     return (
       <View key={this.props.conduct.id}>
         <TouchableOpacity
@@ -48,9 +49,8 @@ export default class ConductItem extends Component {
           }}
         >
           <View style={styles.conductItem}>
-            <Text style={styles.codeHeader}>
+            <Text style={[styles.codeHeader, Styles.font]}>
               {this.state.isHidden === true ? "+ " : "- "}
-
               {`${this.props.conduct.title}`}
             </Text>
           </View>
@@ -58,9 +58,9 @@ export default class ConductItem extends Component {
         {this.state.isHidden === true ? (
           <Text />
         ) : (
-          <Animated.Text style={{ opacity: this.opacity }}>{` ${
-            this.props.conduct.description
-          }`}</Animated.Text>
+          <Animated.Text
+            style={[{ opacity: this.opacity }, styles.codeText, Styles.font]}
+          >{` ${this.props.conduct.description}`}</Animated.Text>
         )}
       </View>
     );
