@@ -48,6 +48,13 @@ const styles = StyleSheet.create({
   heartAlign: {
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  buttonText: {
+    textAlign: "center"
+  },
+  buttonTextContainer: {
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 

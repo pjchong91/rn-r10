@@ -41,7 +41,6 @@ export default class FavsContainer extends Component {
                 const favedSessions = allSessions.filter(session =>
                   favIdArr.includes(session.id)
                 );
-                console.log(favIdArr);
                 let sessions = favedSessions
                   .reduce((acc, curr) => {
                     const timeExists = acc.find(

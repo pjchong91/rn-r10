@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Text, View, SectionList, TouchableHighlight } from "react-native";
+import { Text, View, SectionList, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -11,7 +11,7 @@ renderSeparator = () => {
 const SectionListCustom = ({ sessions, navigation, favIds }) => (
   <SectionList
     renderItem={({ item, index, section }) => (
-      <TouchableHighlight
+      <TouchableOpacity
         key={item.id}
         onPress={() =>
           navigation.navigate("Session", {
@@ -20,7 +20,6 @@ const SectionListCustom = ({ sessions, navigation, favIds }) => (
         }
       >
         <View key={item.id} style={styles.sessionText}>
-          {console.log(favIds, "favs???")}
           <Text style={styles.sessionTitle}>{item.title}</Text>
           <View style={styles.heartAlign}>
             <Text style={styles.sessionLocation}>{item.location}</Text>
@@ -31,7 +30,7 @@ const SectionListCustom = ({ sessions, navigation, favIds }) => (
             )}
           </View>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )}
     renderSectionHeader={({ section: { title } }) => (
       <Text style={styles.timeHeader}>

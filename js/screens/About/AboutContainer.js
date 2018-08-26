@@ -24,9 +24,7 @@ export default class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data: { allConducts } }) => {
-          if (loading) return;
-          <PageLoader />;
-          // <Text />;
+          if (loading) return <PageLoader />;
           if (error) return <Text>Error :(</Text>;
 
           return <About conducts={allConducts} />;

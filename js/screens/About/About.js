@@ -1,6 +1,14 @@
 import React from "react";
-import { Text, View, Image, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Animated,
+  TouchableHighlight
+} from "react-native";
 import styles from "./styles";
+import ConductItem from "./../../components/ConductItem/ConductItem";
 
 const About = conducts => {
   return (
@@ -27,10 +35,7 @@ const About = conducts => {
         {/* <AboutContainer /> */}
 
         {conducts.conducts.map(conduct => (
-          <View key={conduct.id}>
-            <Text style={styles.codeHeader}>{`${conduct.title}`}</Text>
-            <Text style={styles.codeText}>{` ${conduct.description}`}</Text>
-          </View>
+          <ConductItem conduct={conduct} key={conduct.id} />
         ))}
 
         <View style={styles.divider} />
