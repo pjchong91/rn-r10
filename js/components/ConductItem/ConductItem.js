@@ -10,29 +10,29 @@ class ConductItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHidden: true
+      isHidden: true,
+      opacity: new Animated.Value(0)
     };
   }
 
   _showText = () => {
-    Animated.parallel([
-      Animated.timing(this.opacity, {
-        toValue: 1,
-        duration: 500
-      })
-    ]).start();
+    Animated.timing(this.state.opacity, {
+      toValue: 1,
+      duration: 500
+    }).start();
+    console.log(this.state.opacity, "onshow");
     this.setState({ isHidden: false });
   };
 
   _hideText = () => {
-    Animated.timing(this.opacity, {
-      toValue: 0,
+    Animated.timing(this.state.opacity, {
+      toValue: -1,
       duration: 500
     }).start();
-    this.setState({ isHidden: true });
+    console.log(this.state.opacity, "onhide");
+    this.setState({ isHidden: true, opacity: new Animated.Value(0) });
   };
 
-  opacity = new Animated.Value(0);
   rotation = new Animated.Value(0);
   render() {
     // //TODO: '+' Rotation after being clicked
@@ -63,7 +63,11 @@ class ConductItem extends Component {
           <Text />
         ) : (
           <Animated.Text
-            style={[{ opacity: this.opacity }, styles.codeText, Styles.font]}
+            style={[
+              { opacity: this.state.opacity },
+              styles.codeText,
+              Styles.font
+            ]}
           >{` ${this.props.conduct.description}`}</Animated.Text>
         )}
       </View>
