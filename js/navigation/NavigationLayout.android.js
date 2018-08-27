@@ -79,24 +79,6 @@ const mapStack = createStackNavigator(
   }
 );
 
-// const speakerStack = createStackNavigator(
-//   {
-//     Session: {
-//       screen: Session
-//     },
-//     Speaker: {
-//       screen: Speaker
-//     }
-//   },
-//   {
-//     initialRouteName: "Session",
-//     mode: "modal",
-//     navigationOptions: ({ navigation }) => ({
-//       ...sharedNavigationOptions(navigation)
-//     })
-//   }
-// );
-
 const renderIcon = (iconName, tintColor) => {
   return <Icon name={iconName} size={25} color={tintColor} />;
 };

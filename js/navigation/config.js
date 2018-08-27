@@ -18,7 +18,10 @@ const GradientHeader = props => (
 
 const MenuIcon = navigation => (
   <Icon
-    name="md-menu"
+    name={Platform.select({
+      ios: "ios-menu",
+      android: "md-menu"
+    })}
     size={30}
     color="#FFF"
     style={{ padding: 20 }}

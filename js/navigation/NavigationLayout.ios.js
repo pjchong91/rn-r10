@@ -80,33 +80,6 @@ const mapStack = createStackNavigator(
   }
 );
 
-// const speakerStack = createStackNavigator(
-//   {
-//     Session: {
-//       screen: Session
-//     },
-//     Speaker: {
-//       screen: Speaker
-//     }
-//   },
-//   {
-//     initialRouteName: "Session",
-//     mode: "modal",
-//     navigationOptions: ({ navigation }) => ({
-//       ...sharedNavigationOptions(navigation)
-//     })
-//   }
-// );
-
-const MenuIcon = ({ navigate }) => (
-  <Icon
-    name="three-bars"
-    size={30}
-    color="#000"
-    onPress={() => navigate("DrawerOpen")}
-  />
-);
-
 export default createBottomTabNavigator(
   {
     Schedule: scheduleStack,
@@ -140,8 +113,7 @@ export default createBottomTabNavigator(
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
         return <Icon name={iconName} size={25} color={tintColor} />;
-      },
-      headerLeft: MenuIcon(navigation)
+      }
     }),
     tabBarOptions: {
       activeTintColor: "white",

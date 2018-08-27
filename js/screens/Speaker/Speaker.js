@@ -31,7 +31,10 @@ const Speaker = ({ navigation, data }) => {
         <TouchableHighlight onPress={() => navigation.goBack()}>
           <Icon
             style={styles.headerIcon}
-            name="md-close"
+            name={Platform.select({
+              ios: "ios-close",
+              android: "md-close"
+            })}
             size={25}
             color="white"
           />
