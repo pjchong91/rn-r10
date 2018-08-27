@@ -4,10 +4,9 @@ import {
   View,
   ScrollView,
   Image,
-  Button,
   TouchableHighlight,
   TouchableOpacity,
-  StyleSheet
+  Platform
 } from "react-native";
 import styles from "./styles";
 import Styles from "./../../config/styles.js";
@@ -44,7 +43,9 @@ const Session = ({ navigation, session, favIds }) => {
         <Text style={[styles.sessionTime, Styles.font]}>
           {moment(new Date(sessionData.startTime)).format("hh:mm A")}
         </Text>
-        <Text style={[Styles.font]}>{sessionData.description}</Text>
+        <Text style={[styles.sessionDescription, Styles.font]}>
+          {sessionData.description}
+        </Text>
         {!sessionData.speaker ? (
           <Text />
         ) : (

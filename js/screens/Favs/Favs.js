@@ -9,13 +9,15 @@ const Favs = ({ sessions, navigation, favIds }) => {
   };
 
   return (
-    <ScrollView>
+    // <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <SectionListCustom
         sessions={sessions}
         navigation={navigation}
         favIds={favIds}
       />
     </ScrollView>
+    // </View>
   );
 };
 

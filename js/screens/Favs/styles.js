@@ -2,11 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "white"
-    // padding: 20
   },
   timeHeader: {
     width: "100%",
@@ -18,7 +14,6 @@ const styles = StyleSheet.create({
   },
   sessionText: {
     padding: 10
-    // lineHeight: 2.0
   },
   sessionTitle: {
     fontSize: 18,

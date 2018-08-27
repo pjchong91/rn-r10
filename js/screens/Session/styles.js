@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -7,9 +7,7 @@ const styles = StyleSheet.create({
   },
   presentor: {
     flexDirection: "row",
-    // justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "white"
     paddingTop: 20,
     paddingBottom: 20
   },
@@ -23,7 +21,8 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   presentorName: {
-    fontWeight: "600"
+    fontWeight: "600",
+    fontSize: 16
   },
   divider: {
     height: 1,
@@ -39,6 +38,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "600"
   },
+  sessionDescription: {
+    fontSize: 18,
+    color: "#999999"
+  },
   sessionTime: {
     color: "#cf392a",
     fontWeight: "600",
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     lineHeight: 20,
-    fontSize: 20,
+    fontSize: 16,
     color: "white",
     fontWeight: "600",
     paddingTop: 10,
