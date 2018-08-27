@@ -1,11 +1,15 @@
 {
-  "name": "R10",
+  "name": "R10 - Conference App",
   "version": "0.0.1",
   "private": true,
+  "description": "Conference app built in React Native for ios and android",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
+  "keywords": [],
+  "author": "P. Chong, ADP Student @ RED Academy 2018 Q3",
+  "license": "ISC",
   "dependencies": {
     "apollo-boost": "^0.1.14",
     "graphql": "^0.13.2",

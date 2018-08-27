@@ -3,6 +3,7 @@ import { Text, View, Image, ScrollView } from "react-native";
 import styles from "./styles";
 import Styles from "./../../config/styles.js";
 import ConductItem from "./../../components/ConductItem/ConductItem";
+import PropTypes from "prop-types";
 
 const About = conducts => {
   return (
@@ -36,6 +37,16 @@ const About = conducts => {
       </ScrollView>
     </View>
   );
+};
+
+About.propTypes = {
+  conducts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    })
+  ).isRequired
 };
 
 export default About;

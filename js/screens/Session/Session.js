@@ -12,9 +12,10 @@ import Styles from "./../../config/styles.js";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
+import PropTypes from "prop-types";
 
 const Session = ({ navigation, session, favIds }) => {
-  const sessionData = session.Session;
+  const sessionData = session;
   const allFavs = [];
   favIds.favIds.map(item => allFavs.push(item.id));
   const faved = allFavs.includes(sessionData.id);
@@ -23,6 +24,7 @@ const Session = ({ navigation, session, favIds }) => {
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.heartAlign}>
+          {console.log(session)}
           <Text style={[styles.sessionLocation, Styles.font]}>
             {sessionData.location}
           </Text>
@@ -116,6 +118,21 @@ const Session = ({ navigation, session, favIds }) => {
       </ScrollView>
     </View>
   );
+};
+
+Session.propTypes = {
+  session: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    startTime: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    speaker: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired
+    })
+  }).isRequired,
+  navigation: PropTypes.object.isRequired,
+  favIds: PropTypes.object.isRequired
 };
 
 export default Session;

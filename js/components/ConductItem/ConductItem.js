@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { Text, TouchableOpacity, Animated, View } from "react-native";
 import styles from "./styles";
 import Styles from "./../../config/styles.js";
+import PropTypes from "prop-types";
+
 // import Icon from "react-native-vector-icons/Ionicons";
 
-export default class ConductItem extends Component {
+class ConductItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,21 +16,23 @@ export default class ConductItem extends Component {
 
   _showText = () => {
     Animated.parallel([
-      Animated.timing(this.height, {
-        toValue: 1
+      Animated.timing(this.opacity, {
+        toValue: 1,
+        duration: 500
       })
     ]).start();
     this.setState({ isHidden: false });
   };
 
   _hideText = () => {
-    Animated.timing(this.height, {
-      toValue: 0
+    Animated.timing(this.opacity, {
+      toValue: 0,
+      duration: 500
     }).start();
     this.setState({ isHidden: true });
   };
 
-  height = new Animated.Value(0);
+  opacity = new Animated.Value(0);
   rotation = new Animated.Value(0);
   render() {
     // //TODO: '+' Rotation after being clicked
@@ -66,3 +70,13 @@ export default class ConductItem extends Component {
     );
   }
 }
+
+ConductItem.propTypes = {
+  conduct: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+  }).isRequired
+};
+
+export default ConductItem;

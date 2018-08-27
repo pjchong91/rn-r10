@@ -32,7 +32,9 @@ export default class SpeakerContainer extends Component {
           if (loading) return <PageLoader />;
           if (error) return <Text>Error :(</Text>;
 
-          return <Speaker navigation={this.props.navigation} data={data} />;
+          return (
+            <Speaker navigation={this.props.navigation} data={data.Speaker} />
+          );
         }}
       </Query>
     );

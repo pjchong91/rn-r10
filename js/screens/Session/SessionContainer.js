@@ -47,7 +47,7 @@ export default class SessionContainer extends Component {
                 // values.favIds.map(item => favIdArr.push(item.id));
                 return (
                   <Session
-                    session={data}
+                    session={data.Session}
                     navigation={this.props.navigation}
                     favIds={values}
                     sessionId={sessionId}
