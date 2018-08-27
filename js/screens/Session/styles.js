@@ -12,7 +12,11 @@ const styles = StyleSheet.create({
     paddingBottom: 20
   },
   presentorContainer: {
-    marginTop: 20
+    marginTop: 20,
+    color: Platform.select({
+      android: "#999999",
+      ios: "#999999"
+    })
   },
   presentorIcon: {
     width: 50,
@@ -40,7 +44,10 @@ const styles = StyleSheet.create({
   },
   sessionDescription: {
     fontSize: 18,
-    color: "#999999"
+    color: Platform.select({
+      ios: "#000000",
+      android: "#999999"
+    })
   },
   sessionTime: {
     color: "#cf392a",

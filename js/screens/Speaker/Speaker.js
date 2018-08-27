@@ -4,9 +4,9 @@ import {
   View,
   ScrollView,
   Image,
-  Button,
   TouchableHighlight,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from "react-native";
 import styles from "./styles";
 import Styles from "./../../config/styles.js";
@@ -64,7 +64,8 @@ const Speaker = ({ navigation, data }) => {
               width: "auto",
               marginLeft: "auto",
               marginRight: "auto",
-              borderRadius: 50
+              borderRadius: 50,
+              marginTop: 20
             }}
           >
             <TouchableOpacity

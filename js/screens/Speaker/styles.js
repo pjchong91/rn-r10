@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -33,21 +33,27 @@ const styles = StyleSheet.create({
     borderRadius: 50
   },
   speakerName: {
-    color: "#999999",
+    color: Platform.select({
+      ios: "black",
+      android: "#999999"
+    }),
     fontSize: 30,
     paddingTop: 20,
     paddingBottom: 20,
     fontWeight: "600"
   },
   speakerBio: {
-    color: "#999999",
+    color: Platform.select({
+      ios: "black",
+      android: "#999999"
+    }),
     fontSize: 16,
     lineHeight: 24
   },
   buttonText: {
     textAlign: "center",
     lineHeight: 20,
-    fontSize: 20,
+    fontSize: 16,
     color: "white",
     fontWeight: "600",
     paddingTop: 10,

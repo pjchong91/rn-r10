@@ -4,7 +4,6 @@ import {
   View,
   ScrollView,
   Image,
-  TouchableHighlight,
   TouchableOpacity,
   Platform
 } from "react-native";
@@ -53,7 +52,7 @@ const Session = ({ navigation, session, favIds }) => {
             <Text style={[styles.presentorContainer, Styles.font]}>
               Presented by:
             </Text>
-            <TouchableHighlight
+            <TouchableOpacity
               onPress={() => {
                 navigation.navigate("Speaker", {
                   speakerId: sessionData.speaker.id
@@ -74,7 +73,7 @@ const Session = ({ navigation, session, favIds }) => {
                   {sessionData.speaker.name}
                 </Text>
               </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
           </Fragment>
         )}
 
