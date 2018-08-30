@@ -3,7 +3,7 @@ import About from "./About";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
-import PageLoader from "../../components/PageLoader/PageLoader";
+import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
 
 export default class AboutContainer extends Component {
   static navigationOptions = {
@@ -23,7 +23,7 @@ export default class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data: { allConducts } }) => {
-          if (loading) return <PageLoader />;
+          if (loading) return <LoadingIndicator />;
           if (error) return <Text>Error :(</Text>;
 
           return <About conducts={allConducts} />;

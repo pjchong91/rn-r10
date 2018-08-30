@@ -12,8 +12,8 @@ import styles from "./styles";
 import Styles from "./../../config/styles.js";
 import { Linking } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import LinearGradient from "react-native-linear-gradient";
 import PropTypes from "prop-types";
+import Gradient from "./../../components/Gradient/Gradient";
 
 const Speaker = ({ navigation, data }) => {
   let speaker = data;
@@ -51,19 +51,8 @@ const Speaker = ({ navigation, data }) => {
           <Image source={{ uri: speaker.image }} style={styles.speakerImage} />
           <Text style={[styles.speakerName, Styles.font]}>{speaker.name}</Text>
           <Text style={[styles.speakerBio, Styles.font]}>{speaker.bio}</Text>
-          <LinearGradient
-            colors={["#9963ea", "#8797D6"]}
-            start={{ x: 0.0, y: 1.0 }}
-            end={{ x: 1.0, y: 0.0 }}
-            style={{
-              height: 50,
-              width: "auto",
-              marginLeft: "auto",
-              marginRight: "auto",
-              borderRadius: 50,
-              marginTop: 20
-            }}
-          >
+
+          <Gradient>
             <TouchableOpacity
               onPress={() => this.handleClick()}
               style={styles.buttonTextContainer}
@@ -72,7 +61,7 @@ const Speaker = ({ navigation, data }) => {
                 Read More on Wikipedia
               </Text>
             </TouchableOpacity>
-          </LinearGradient>
+          </Gradient>
         </View>
       </ScrollView>
     </View>
