@@ -2,12 +2,12 @@
 
 - Author: P. Chong, ADP Student @ RED Academy 2018 Q3
 
-![R10 Screens](./Screens.png)
-
 ## Description and Objective:
 
 - The objective for this project was to create a mobile application for a developer conference called 'R10'. The app is designed to be android and ios compatible. It allows users to view a schedule of sessions, details for individual sessions, and to 'favourite' a session (so that they have a list of sessions they are interested in)
 - In addition, users can read about speakers for each session and navigate to an external link to read more about the speakers
+
+![R10 Screens](./Screens.png)
 
 ## Questions and Learnings
 
