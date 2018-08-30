@@ -3,7 +3,7 @@ import Speaker from "./Speaker";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text, View } from "react-native";
-import PageLoader from "./../../components/PageLoader/PageLoader";
+import LoadingIndicator from "./../../components/LoadingIndicator/LoadingIndicator";
 // Helper to format GraphQL data into section list data
 
 export default class SpeakerContainer extends Component {
@@ -29,7 +29,7 @@ export default class SpeakerContainer extends Component {
     return (
       <Query query={GET_SPEAKER_QUERY} variables={{ id: speakerId }}>
         {({ loading, error, data }) => {
-          if (loading) return <PageLoader />;
+          if (loading) return <LoadingIndicator />;
           if (error) return <Text>Error :(</Text>;
 
           return (

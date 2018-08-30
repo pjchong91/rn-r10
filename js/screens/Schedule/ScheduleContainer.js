@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
 import FavsContext from "./../../context/FavsContext";
-import PageLoader from "../../components/PageLoader/PageLoader";
+import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
 
 export default class ScheduleContainer extends Component {
   static navigationOptions = {
@@ -25,7 +25,7 @@ export default class ScheduleContainer extends Component {
         `}
       >
         {({ loading, error, data: { allSessions } }) => {
-          if (loading) return <PageLoader />;
+          if (loading) return <LoadingIndicator />;
           if (error) return <Text>Error :(</Text>;
           // Helper to format GraphQL data into section list data
 

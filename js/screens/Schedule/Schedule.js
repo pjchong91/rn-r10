@@ -5,15 +5,13 @@ import SectionListCustom from "../../components/SectionListCustom/SectionListCus
 import PropTypes from "prop-types";
 const Schedule = ({ sessions, navigation, favIds }) => {
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <SectionListCustom
-          sessions={sessions}
-          navigation={navigation}
-          favIds={favIds}
-        />
-      </ScrollView>
-    </View>
+    <ScrollView style={styles.container}>
+      <SectionListCustom
+        sessions={sessions}
+        navigation={navigation}
+        favIds={favIds}
+      />
+    </ScrollView>
   );
 };
 
