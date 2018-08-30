@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import { Text } from "react-native";
 import FavsContext from "./../../context/FavsContext";
 import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
+import formatter from "./../../lib/dataFormatting.js";
 
 export default class ScheduleContainer extends Component {
   static navigationOptions = {
@@ -29,20 +30,8 @@ export default class ScheduleContainer extends Component {
           if (error) return <Text>Error :(</Text>;
           // Helper to format GraphQL data into section list data
 
-          let sessions = allSessions
-            .reduce((acc, curr) => {
-              const timeExists = acc.find(
-                section => section.title === curr.startTime
-              );
-              timeExists
-                ? timeExists.data.push(curr)
-                : acc.push({
-                    title: curr.startTime,
-                    data: [curr]
-                  });
-              return acc;
-            }, [])
-            .sort((a, b) => a.title - b.title);
+          let sessions = formatter(allSessions);
+
           return (
             <FavsContext.Consumer>
               {values => {

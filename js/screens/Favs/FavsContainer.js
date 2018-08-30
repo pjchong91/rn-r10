@@ -6,6 +6,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Text } from "react-native";
 import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
+import formatter from "./../../lib/dataFormatting.js";
 
 export default class FavsContainer extends Component {
   static navigationOptions = {
@@ -41,20 +42,7 @@ export default class FavsContainer extends Component {
                 const favedSessions = allSessions.filter(session =>
                   favIdArr.includes(session.id)
                 );
-                let sessions = favedSessions
-                  .reduce((acc, curr) => {
-                    const timeExists = acc.find(
-                      section => section.title === curr.startTime
-                    );
-                    timeExists
-                      ? timeExists.data.push(curr)
-                      : acc.push({
-                          title: curr.startTime,
-                          data: [curr]
-                        });
-                    return acc;
-                  }, [])
-                  .sort((a, b) => a.title - b.title);
+                let sessions = formatter(favedSessions);
 
                 return (
                   <Favs
