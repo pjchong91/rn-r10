@@ -2,6 +2,8 @@
 
 - Author: P. Chong, ADP Student @ RED Academy 2018 Q3
 
+![R10 Screens](./Screens.png)
+
 ## Description and Objective:
 
 - The objective for this project was to create a mobile application for a developer conference called 'R10'. The app is designed to be android and ios compatible. It allows users to view a schedule of sessions, details for individual sessions, and to 'favourite' a session (so that they have a list of sessions they are interested in)
@@ -21,14 +23,23 @@
 
 ## Using:
 
-FrontEnd: React, React Native
-Backend: Realm, Apollo, GraphQL
+FrontEnd:
+
+- React
+- React Native
+
+Backend
+
+- Realm
+- Apollo Boost
+- GraphQL
 
 ## Set Up
 
 1. Download the repo
-1. Run npm install
-1. Run react-native run-ios or react-native run-android
+1. Run
+   `npm install`
+1. Run `react-native run-ios` or `react-native run-android`
 
 ## Goals for Future Improvement:
 
