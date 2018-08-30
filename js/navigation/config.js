@@ -39,7 +39,7 @@ export const sharedNavigationOptions = navigation => ({
     ios: "",
     android: MenuIcon(navigation)
   }),
-  headerTintColor: "#fff",
+  headerTintColor: "#FFF",
   headerTitleStyle: {
     fontWeight: "600",
     fontFamily: Platform.select({

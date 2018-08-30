@@ -8,10 +8,11 @@ const styles = StyleSheet.create({
   speakerHeader: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "space-between"
   },
   headerIcon: {
-    padding: 20
+    paddingLeft: 20,
+    paddingTop: 20
   },
   speakerHeaderText: {
     color: "white",

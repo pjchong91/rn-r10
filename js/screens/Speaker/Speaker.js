@@ -44,6 +44,7 @@ const Speaker = ({ navigation, data }) => {
         <Text style={[styles.speakerHeaderText, Styles.font]}>
           About the Speaker
         </Text>
+        <Text />
       </View>
       <ScrollView>
         <View style={styles.speakerModal}>

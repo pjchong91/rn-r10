@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    padding: 20
+    padding: 10
   },
   logo: {
-    marginTop: 20,
+    // marginTop: 20,
     // marginBottom: 20,
     marginLeft: "auto",
     marginRight: "auto"
@@ -20,22 +20,23 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "600"
     // paddingTop: 20,
     // paddingBottom: 20
   },
   bodyText: {
-    fontSize: 18,
+    fontSize: 16,
     paddingTop: 20,
-    paddingBottom: 20
+    paddingBottom: 20,
+    fontWeight: "300"
     // paddingLeft: 10,
     // paddingRight: 10
   },
   codeHeader: {
-    fontSize: 18,
-    paddingTop: 20,
-    paddingBottom: 20,
+    fontSize: 16,
+    paddingTop: 10,
+    paddingBottom: 10,
     color: "#9963ea",
     fontWeight: "600"
   },

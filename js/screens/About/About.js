@@ -6,6 +6,7 @@ import ConductItem from "./../../components/ConductItem/ConductItem";
 import PropTypes from "prop-types";
 
 const About = conducts => {
+  console.log(conducts)
   return (
     <View style={styles.container}>
       <ScrollView>

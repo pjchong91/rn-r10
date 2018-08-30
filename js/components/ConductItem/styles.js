@@ -2,16 +2,18 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   codeHeader: {
-    fontSize: 18,
-    paddingTop: 20,
-    paddingBottom: 20,
+    fontSize: 16,
+    paddingTop: 10,
+    // paddingBottom: 10,
     color: "#9963ea",
     fontWeight: "600"
   },
   codeText: {
-    fontSize: 18,
+    fontSize: 16,
+    paddingTop: 10,
     flex: 1,
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    fontWeight: "300"
   },
   conductItem: {
     flexDirection: "row",
