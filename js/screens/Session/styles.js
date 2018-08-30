@@ -3,7 +3,8 @@ import { StyleSheet, Platform } from "react-native";
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    minHeight: "100%"
   },
   presentor: {
     flexDirection: "row",
