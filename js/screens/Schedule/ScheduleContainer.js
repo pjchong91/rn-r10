@@ -21,6 +21,7 @@ export default class ScheduleContainer extends Component {
               location
               title
               id
+              description
             }
           }
         `}

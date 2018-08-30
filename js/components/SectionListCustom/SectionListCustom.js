@@ -22,9 +22,11 @@ const SectionListCustom = ({ sessions, navigation, favIds }) => (
       <TouchableOpacity
         key={item.id}
         onPress={() =>
-          navigation.navigate("Session", {
-            itemId: item.id
-          })
+          item.description
+            ? navigation.navigate("Session", {
+                itemId: item.id
+              })
+            : ""
         }
       >
         <View key={item.id} style={styles.sessionText}>
