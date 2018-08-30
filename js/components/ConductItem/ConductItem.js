@@ -3,9 +3,6 @@ import { Text, TouchableOpacity, Animated, View } from "react-native";
 import styles from "./styles";
 import Styles from "./../../config/styles.js";
 import PropTypes from "prop-types";
-
-// import Icon from "react-native-vector-icons/Ionicons";
-
 class ConductItem extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +17,6 @@ class ConductItem extends Component {
       toValue: 1,
       duration: 500
     }).start();
-    console.log(this.state.opacity, "onshow");
     this.setState({ isHidden: false });
   };
 
@@ -29,7 +25,6 @@ class ConductItem extends Component {
       toValue: -1,
       duration: 500
     }).start();
-    console.log(this.state.opacity, "onhide");
     this.setState({ isHidden: true, opacity: new Animated.Value(0) });
   };
 

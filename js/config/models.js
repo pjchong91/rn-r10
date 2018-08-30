@@ -1,7 +1,5 @@
 //REALM DATABSE
 
-// WRITE ALL REALM RELATED CODE
-
 import Realm from "realm";
 
 const favsSchema = {

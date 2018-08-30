@@ -34,7 +34,6 @@ export default class SessionContainer extends Component {
     `;
 
     return (
-      //
       <Query query={GET_SESSION_QUERY} variables={{ id: sessionId }}>
         {({ loading, error, data }) => {
           if (loading) return <PageLoader />;
@@ -43,8 +42,6 @@ export default class SessionContainer extends Component {
           return (
             <FavsContext.Consumer>
               {values => {
-                // const favIdArr = [];
-                // values.favIds.map(item => favIdArr.push(item.id));
                 return (
                   <Session
                     session={data.Session}

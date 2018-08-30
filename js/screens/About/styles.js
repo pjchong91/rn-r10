@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
     padding: 10
   },
   logo: {
-    // marginTop: 20,
-    // marginBottom: 20,
     marginLeft: "auto",
     marginRight: "auto"
   },
@@ -22,16 +20,12 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
     fontWeight: "600"
-    // paddingTop: 20,
-    // paddingBottom: 20
   },
   bodyText: {
     fontSize: 16,
     paddingTop: 20,
     paddingBottom: 20,
     fontWeight: "300"
-    // paddingLeft: 10,
-    // paddingRight: 10
   },
   codeHeader: {
     fontSize: 16,

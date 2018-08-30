@@ -24,7 +24,6 @@ const Session = ({ navigation, session, favIds }) => {
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.heartAlign}>
-          {console.log(session)}
           <Text style={[styles.sessionLocation, Styles.font]}>
             {sessionData.location}
           </Text>

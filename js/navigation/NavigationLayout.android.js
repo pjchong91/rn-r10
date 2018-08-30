@@ -1,16 +1,12 @@
 import React from "react";
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import { sharedNavigationOptions } from "./config";
-import { Platform } from "react-native";
-
 import Icon from "react-native-vector-icons/Ionicons";
-
 import About from "./../screens/About";
 import Schedule from "./../screens/Schedule";
 import Favs from "./../screens/Favs";
 import Map from "./../screens/Map";
 import Session from "./../screens/Session";
-import Speaker from "./../screens/Speaker";
 
 const aboutStack = createStackNavigator(
   {
@@ -33,17 +29,11 @@ const scheduleStack = createStackNavigator(
     Session: {
       screen: Session
     }
-    // Speaker: {
-    //   screen: Speaker
-    // }
   },
   {
-    // mode: "modal",
     initialRouteName: "Schedule",
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
-
-      // headerLeft: MenuIcon(navigation)
     })
   }
 );

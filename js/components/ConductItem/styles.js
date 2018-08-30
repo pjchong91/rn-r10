@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   codeHeader: {
     fontSize: 16,
     paddingTop: 10,
-    // paddingBottom: 10,
     color: "#9963ea",
     fontWeight: "600"
   },
